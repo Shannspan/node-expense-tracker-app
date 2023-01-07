@@ -29,7 +29,7 @@ router.get('/list', (req,res) => {
             console.log('Error in retrieval:' + err);
         }
         })
-})
+});
 // to get by id
 router.get('/:id', (req,res) => {
     Expense.findById(req.params.id, (err, doc) => {
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
         insertRecord(req, res);
     } else {
         updateRecord(req, res);
-    }})
+    }});
 
 // map request body parameters to expense object model
 // if succesful will redirect to expense/list
@@ -61,7 +61,7 @@ function insertRecord(req, res) {
             res.redirect('expense/list');
         } else {
             console.log('Error during insert:' + err);
-    }})}
+    }})};
 
 
 function updateRecord(req, res) {
@@ -74,18 +74,27 @@ function updateRecord(req, res) {
                 res.redirect('expense/list');
             } else {
                 console.log('Error during update:' + err);
-        }})}
+        }})};
 
 // to delete records
 
-router.delete('/delete/_id:', (req, res) => {
-    Expense.findByIdAndRemove(req.params.id, (err, doc) => {
+router.delete('/delete/:id', (req, res) => {
+    Expense.findByIdAndRemove(req.params._id, (err, doc) => {
         if (!err) {
-            res.send(200);
+            res.sendStatus(200);
+            console.log('deleted');
         } else {
             console.log('Error during delete:' + err);
 }})
-})
+});
+
+// router.get('/:id', (req,res) => {
+//     Expense.findById(req.params.id, (err, doc) => {
+//         if (!err) {
+//             res.send(doc)
+//         } else {
+//             console.log('Error in retrieval:' + err);
+//         }})
 
 // export newly created router module
 module.exports = router;
