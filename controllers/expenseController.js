@@ -88,13 +88,5 @@ router.delete('/delete/:id', (req, res) => {
 }})
 });
 
-// router.get('/:id', (req,res) => {
-//     Expense.findById(req.params.id, (err, doc) => {
-//         if (!err) {
-//             res.send(doc)
-//         } else {
-//             console.log('Error in retrieval:' + err);
-//         }})
-
 // export newly created router module
 module.exports = router;

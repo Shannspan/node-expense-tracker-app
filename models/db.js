@@ -1,6 +1,10 @@
 // first import mongoose
 const mongoose = require('mongoose');
 
+const express = require('express');
+
+const app = express();
+
 // then we will call mongoose object and connect function
 // obtain the connection string from MongoDB compass 
 // NOTE: use 0.0.0.0 not 'localhost'
@@ -29,7 +33,11 @@ const MongoClient = require("mongodb").MongoClient;
 // Replace the uri string with your connection string.
 const uri =
   "mongodb+srv://ExpTrackUser:SfXKkwWTHuLYQ7jJ@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
+
 const client = new MongoClient(uri);
+
+let listAll = "";
+
 async function run() {
   try {
     const database = client.db('MyExpenseTracker');
@@ -44,6 +52,5 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
 
 require('./expenseModel');
