@@ -1,35 +1,6 @@
 // first import mongoose
 const mongoose = require('mongoose');
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-
-
-
-
-
-async function mainAtlas() {
-
-const uri = "mongodb+srv://ExpTrackUser:<SfXKkwWTHuLYQ7jJ>@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri);
-const collection = client.db("MyExpenseTracker").collection("expenses");
-    try {
-        //Connect to the MongoDB Atlas cluster
-        await client.connect();
-
-        //make appropriate DB calls
-        await listDatabases(client);
-        console.log(collection);
-
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-};
-
-mainAtlas().catch(console.error);
-
-
 // then we will call mongoose object and connect function
 // obtain the connection string from MongoDB compass 
 // NOTE: use 0.0.0.0 not 'localhost'
@@ -53,4 +24,26 @@ err => {
 
     // then create a new file expenseModel in models folder and require
 
-    require('./expenseModel');
+const MongoClient = require("mongodb").MongoClient;
+
+// Replace the uri string with your connection string.
+const uri =
+  "mongodb+srv://ExpTrackUser:SfXKkwWTHuLYQ7jJ@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri);
+async function run() {
+  try {
+    const database = client.db('MyExpenseTracker');
+    const expenses = database.collection('expenses');
+    // Query for a movie that has the title 'Back to the Future'
+    const query = { expense: 'Hat' };
+    const expense = await expenses.findOne(query);
+    console.log(expense);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
+require('./expenseModel');
