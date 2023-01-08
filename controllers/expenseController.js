@@ -2,6 +2,7 @@
 //initilise the express object by requiring the express library (our framework)
 const express = require('express');
 
+
 //initilise the express router inbuilt function (our router module)
 let router = express.Router();
 
@@ -9,7 +10,9 @@ const mongoose = require('mongoose');
 
 //use mongoose model to declare the expense object so we can retrieve data from mongodb
 //***** I think this is where my code is failing to import from mongo db
-const Expense = mongoose.model('Expense');
+const expenseModel = require('/models/expenseModel');
+
+const Expense = mongoose(expenseModel);
 
 //use get method to declare route - no CRUD operations required for route folder? why? 
 router.get('/', (req, res) => {
@@ -41,7 +44,8 @@ router.get('/:id', (req,res) => {
 })
 // to post new records or update existing
 router.post('/', (req, res) => {
-    if (!req.body._id || req.body._id == '') {
+    if (!req.body._id || req.body._id == '') 
+    {
         insertRecord(req, res);
     } else {
         updateRecord(req, res);
@@ -52,7 +56,8 @@ router.post('/', (req, res) => {
 
 function insertRecord(req, res) {
     let expenseObj = new Expense();
-    expenseObj.expense = req.body.expense;
+    expenseObj.expense = req.collection.expense;
+    console.log(req.collection.expense);
     expenseObj.amount = req.body.amount;
     expenseObj.date = req.body.date;
     expenseObj.notes = req.body.notes;
@@ -87,6 +92,29 @@ router.delete('/delete/:id', (req, res) => {
             console.log('Error during delete:' + err);
 }})
 });
+
+// const MongoClient = require("mongodb").MongoClient;
+
+// //Replace the uri string with your connection string.
+// const uri =
+//   "mongodb+srv://ExpTrackUser:SfXKkwWTHuLYQ7jJ@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
+
+// const client = new MongoClient(uri);
+
+// async function run() {
+//   try {
+//     const database = client.db('MyExpenseTracker');
+//     const expenses = database.collection('expenses');
+//     // Query for a expense 'Hat'
+//     const query = { expense: 'Hat' };
+//     const expense = await expenses.findOne(query);
+//     console.log(expense);
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// }
+// run().catch(console.dir);
 
 // export newly created router module
 module.exports = router;

@@ -41,12 +41,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 // middleware is returning response in json format
 // sending though req.body as an argument
 
-app.get('/', (req, res) => {
-    //.send or render a view you have created
-    res.send(`
-        <h2>Shann's Expense Dashboard</h2>
-        <h3>Click her to get access to the <b><a href="/expense/list">Database</a></b></h3>`)
-});
+//Below code is now redundant as using React app front end
+
+// app.get('/', (req, res) => {
+//     //.send or render a view you have created
+//     res.send(`
+//         <h2>Shann's Expense Dashboard</h2>
+//         <h3>Click her to get access to the <b><a href="/expense/list">Database</a></b></h3>`)
+// });
 
 // now app needs to listen to a port
 // always include console.log for 'health' check

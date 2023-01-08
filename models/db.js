@@ -1,9 +1,9 @@
 // first import mongoose
 const mongoose = require('mongoose');
 
-const express = require('express');
+//const express = require('express');
 
-const app = express();
+//const app = express();
 
 // then we will call mongoose object and connect function
 // obtain the connection string from MongoDB compass 
@@ -27,30 +27,5 @@ err => {
     }});
 
     // then create a new file expenseModel in models folder and require
-
-const MongoClient = require("mongodb").MongoClient;
-
-// Replace the uri string with your connection string.
-const uri =
-  "mongodb+srv://ExpTrackUser:SfXKkwWTHuLYQ7jJ@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
-
-const client = new MongoClient(uri);
-
-let listAll = "";
-
-async function run() {
-  try {
-    const database = client.db('MyExpenseTracker');
-    const expenses = database.collection('expenses');
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { expense: 'Hat' };
-    const expense = await expenses.findOne(query);
-    console.log(expense);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
 
 require('./expenseModel');
