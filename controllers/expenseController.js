@@ -9,10 +9,9 @@ let router = express.Router();
 const mongoose = require('mongoose');
 
 //use mongoose model to declare the expense object so we can retrieve data from mongodb
-//***** I think this is where my code is failing to import from mongo db
-const expenseModel = require('/models/expenseModel');
 
-const Expense = mongoose(expenseModel);
+//***** I think this is where my code is failing to record to mongo db Atlas *******
+const Expense = mongoose.model('Expense');
 
 //use get method to declare route - no CRUD operations required for route folder? why? 
 router.get('/', (req, res) => {
@@ -57,7 +56,7 @@ router.post('/', (req, res) => {
 function insertRecord(req, res) {
     let expenseObj = new Expense();
     expenseObj.expense = req.collection.expense;
-    console.log(req.collection.expense);
+    console.log(req.body.expense);
     expenseObj.amount = req.body.amount;
     expenseObj.date = req.body.date;
     expenseObj.notes = req.body.notes;

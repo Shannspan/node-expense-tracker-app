@@ -41,14 +41,17 @@ app.use(bodyParser.urlencoded({extended: false}));
 // middleware is returning response in json format
 // sending though req.body as an argument
 
-//Below code is now redundant as using React app front end
+//Below code is now redundant as using React app front end ?? I think ??
 
-// app.get('/', (req, res) => {
-//     //.send or render a view you have created
-//     res.send(`
-//         <h2>Shann's Expense Dashboard</h2>
-//         <h3>Click her to get access to the <b><a href="/expense/list">Database</a></b></h3>`)
-// });
+app.get('/', (req, res) => {
+    //.send or render a view you have created
+    res.send(expenses)
+});
+
+app.post('/', (req, res) => {
+    console.log(req.body);
+    return res.send(`Expense has been added: ${req.body.expense}`);
+}) 
 
 // now app needs to listen to a port
 // always include console.log for 'health' check
@@ -63,3 +66,4 @@ app.listen(3000, () => console.log('Server started at 3000'));
 
 app.use("/expense", expenseController);
 
+//why is this "/expense" when the collection is expenses?

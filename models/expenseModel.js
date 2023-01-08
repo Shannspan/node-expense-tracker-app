@@ -29,7 +29,7 @@ let expenseSchema = new mongoose.Schema({
 
 //call mongoose and model and schema
 
-mongoose.model('Expense', expenseSchema);
+module.exports = mongoose.model('Expense', expenseSchema);
 
 // now run   $ nodemon index.js in terminal 
 // ingnore deprecation warning this is just letting you know a new version is coming out
