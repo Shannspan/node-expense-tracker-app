@@ -1,28 +1,41 @@
 // first import mongoose
 const mongoose = require('mongoose');
 
+// code from include full driver code example Atlas connect
 
-// DO I NEED TO REQUIRE MONGODB IF I AM ALREADY USING A CONNECTION STRING? 
-// const MongoClient = require("mongodb");
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = "mongodb+srv://ExpTrackUser:<password>@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
+
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
 
 const url = `mongodb+srv://ExpTrackUser:SfXKkwWTHuLYQ7jJ@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority`;
 
-// const client = new MongoClient(url);
+const client = new MongoClient(url);
 
-// async function run() {
-//   try {
-//     const database = client.db('MyExpenseTracker');
-//     const expenses = database.collection('expenses');
-//     // Query for a expense 'Hat'
-//     const query = { expense: 'Hat' };
-//     const expense = await expenses.findOne(query);
-//     console.log(expense);
-//   } finally {
-//     // Ensures that the client will close when you finish/error
-//     await client.close();
-//   }
-// }
-// run().catch(console.dir);
+async function run() {
+  try {
+    const database = client.db('MyExpenseTracker');
+    const expenses = database.collection('expenses');
+    // Query for a expense 'Hat'
+    // working and is evidence of Connection to Atlas
+    // but this connection is not carrying through to front end 
+    // front end is also not getting data to back end
+    const query = { expense: 'Hat' };
+    const expense = await expenses.findOne(query);
+    console.log(expense);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 
 const connectParams = {
