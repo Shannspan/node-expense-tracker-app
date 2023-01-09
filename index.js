@@ -8,7 +8,7 @@ require('./models/db');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-//****const MongoClient = require('mongodb').MongoClient;
+
 
 // require controller functions, best to declare before express application
 
@@ -41,7 +41,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 // middleware is returning response in json format
 // sending though req.body as an argument
 
-//Below code is now redundant as using React app front end ?? I think ??
 
 app.get('/', (req, res) => {
     //.send or render a view you have created
