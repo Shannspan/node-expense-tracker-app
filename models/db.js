@@ -1,9 +1,6 @@
 // first import mongoose
 const mongoose = require('mongoose');
 
-//const express = require('express');
-
-//const app = express();
 
 // then we will call mongoose object and connect function
 // obtain the connection string from MongoDB compass 

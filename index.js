@@ -45,12 +45,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
     //.send or render a view you have created
-    res.send(expenses)
+    res.send(`
+        <h2>Shann's Expense Dashboard</h2>
+        <h3>Click her to get access to the <b><a href="/expense/list">Database</a></b></h3>`)
 });
+
 
 app.post('/', (req, res) => {
     console.log(req.body);
-    return res.send(`Expense has been added: ${req.body.expense}`);
+    return res.send(`Expense has been added: ${req.body.expenses}`);
 }) 
 
 // now app needs to listen to a port
