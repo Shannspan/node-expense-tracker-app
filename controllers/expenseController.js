@@ -92,28 +92,7 @@ router.delete('/delete/:id', (req, res) => {
 }})
 });
 
-// const MongoClient = require("mongodb").MongoClient;
 
-// //Replace the uri string with your connection string.
-// const uri =
-//   "mongodb+srv://ExpTrackUser:SfXKkwWTHuLYQ7jJ@myexpensetracker.wydgt9x.mongodb.net/?retryWrites=true&w=majority";
-
-// const client = new MongoClient(uri);
-
-// async function run() {
-//   try {
-//     const database = client.db('MyExpenseTracker');
-//     const expenses = database.collection('expenses');
-//     // Query for a expense 'Hat'
-//     const query = { expense: 'Hat' };
-//     const expense = await expenses.findOne(query);
-//     console.log(expense);
-//   } finally {
-//     // Ensures that the client will close when you finish/error
-//     await client.close();
-//   }
-// }
-// run().catch(console.dir);
 
 // export newly created router module
 module.exports = router;
