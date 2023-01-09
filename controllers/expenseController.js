@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 //use mongoose model to declare the expense object so we can retrieve data from mongodb
 
-//***** I think this is where my code is failing to record to mongo db Atlas *******
+
 const Expense = mongoose.model('Expense');
 
 //use get method to declare route - no CRUD operations required for route folder? why? 
@@ -83,7 +83,8 @@ function updateRecord(req, res) {
 // to delete records
 
 router.delete('/delete/:id', (req, res) => {
-    Expense.findByIdAndRemove(req.params._id, (err, doc) => {
+    // replaced _id with id and now delete function works through to Atlas
+    Expense.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
             res.sendStatus(200);
             console.log('deleted');
