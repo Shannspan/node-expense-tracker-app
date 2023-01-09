@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
 
 function insertRecord(req, res) {
     let expenseObj = new Expense();
-    expenseObj.expense = req.collection.expense;
+    expenseObj.expense = req.body.expense;
     console.log(req.body.expense);
     expenseObj.amount = req.body.amount;
     expenseObj.date = req.body.date;
