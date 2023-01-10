@@ -59,7 +59,7 @@ app.post('/', (req, res) => {
 // now app needs to listen to a port
 // always include console.log for 'health' check
 
-app.listen('https://node-expense-tracker-app-v2.onrender.com', () => console.log('Server started at Render deploy'));
+// app.listen('https://node-expense-tracker-app-v2.onrender.com', () => console.log('Server started at Render deploy'));
 
 app.listen = function listen() {
     let server = http.createServer(this);
