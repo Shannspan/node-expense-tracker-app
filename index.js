@@ -8,6 +8,7 @@ require('./models/db');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const https = require('https')
 
 
 // require controller functions, best to declare before express application
@@ -59,6 +60,12 @@ app.post('/', (req, res) => {
 // always include console.log for 'health' check
 
 app.listen('https://node-expense-tracker-app-v2.onrender.com', () => console.log('Server started at Render deploy'));
+
+app.listen = function listen() {
+    let server = http.createServer(this);
+    return server.listen.apply('https://node-expense-tracker-app-v2.onrender.com'),
+    console.log('Server started at Render deploy');
+  };
 
 // to start server connection in bash terminal: $ npm start 
 
