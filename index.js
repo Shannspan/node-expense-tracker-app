@@ -58,14 +58,14 @@ app.post('/', (req, res) => {
 // now app needs to listen to a port
 // always include console.log for 'health' check
 
-app.listen(3000, () => console.log('Server started at 3000'));
+app.listen('https://node-expense-tracker-app-v2.onrender.com', () => console.log('Server started at Render deploy'));
 
 // to start server connection in bash terminal: $ npm start 
 
-// use expenseController object created above
-
-//"/expense" is the mongodb collection I think ?????
+// use expenseController object created above & create shortcut for 
+//all API calls by including '/expense' 
+//as auto include to start all file paths
 
 app.use("/expense", expenseController);
 
-//why is this "/expense" when the collection is expenses?
+
