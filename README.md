@@ -7,11 +7,13 @@ CLG Node JS Final Project
 
 *   Run the front end with your Node.js server and local database (MonDB Compass)
 
-*   Run tests to have maximum coverage
+*   Run tests to have maximum coverage 
+    
+    *** tests are internal so far - extension work  yet to do - create separate files for Unit Testing
 
 *   Push application to GitHub
 
-*   Extension work:
+*   Extension work completed:
 
     *   Node.js server deployed on render
 
