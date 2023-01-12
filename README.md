@@ -1,14 +1,27 @@
 # node-expense-tracker-app
 CLG Node JS Final Project
 
-*** Requesting assistance: 
+*   Install the pre-built front-end application
 
-*   I can now get localhost 3000 to display
+*   Fill the gaps to resolve errors
 
-*   on localhost 3000 the database link works but takes me to records created by the React front end NOT the MongoDB Atlas cluster
+*   Run the front end with your Node.js server and local database (MonDB Compass)
 
-*   New code on db.js now demonstrates Atlas connection to Node.js
+*   Run tests to have maximum coverage
 
-*   The data from Atlas is no getting to Port 3000 (Node), or Port 3001 (React). The data is not flowing the opposite way either.
+*   Push application to GitHub
 
-* So far I have used a few different resources including vscode suggestions, Mongo DB Atlas homepage  connection advice and an article from hevodata.com
+*   Extension work:
+
+    *   Node.js server deployed on render
+
+        *   https://node-expense-tracker-app-v2.onrender.com
+
+    *   React.js app deployed on netlify
+
+        *   https://react-expense-tracker-app-v2.netlify.app/
+
+    *   Move to MongoDB Atlas (cloud) for database
+
+        *   https://cloud.mongodb.com/v2/63b90585cafb0f15303e2f28#/clusters/detail/MyExpenseTracker
+
