@@ -15,7 +15,7 @@ let expenseSchema = new mongoose.Schema({
         required: 'This field is required'
     },
     date: {
-        type: new Date(DD/MM/YYYY),
+        type: Date, default: Date.now,
         required: 'This field is required'
     },
     notes: {
