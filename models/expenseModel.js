@@ -16,7 +16,14 @@ let expenseSchema = new mongoose.Schema({
     },
     date: {
         type: Date, default: Date.now,
-        required: 'This field is required'
+        required: 'This field is required',
+        get: function(value) {
+            return value.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            }).replace(/\//g, "-");
+        }
     },
     notes: {
         type: String,
