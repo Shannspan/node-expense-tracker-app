@@ -24,7 +24,7 @@ let expenseSchema = new mongoose.Schema({
                 year: "numeric"
             }).replace(/\//g, "-");
         }
-    },
+    },  
     notes: {
         type: String,
         required: 'This field is required'
