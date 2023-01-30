@@ -25,11 +25,11 @@ CLG Node JS Final Project
 
         *   https://cloud.mongodb.com/v2/63b90585cafb0f15303e2f28#/clusters/detail/MyExpenseTracker
 
-* Extension work to do: 
+* Extension work ideas for future: 
 
     *   Tests are internal so far create separate files for Unit Testing
 
-    *   React app is not resonsive - make it mobile friendly
+    *   React app is not responsive - make it mobile friendly
 
     *   Other functionality is in the code, add buttons so it can be used
 
