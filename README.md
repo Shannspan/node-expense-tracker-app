@@ -25,11 +25,13 @@ CLG Node JS Final Project
 
         *   https://cloud.mongodb.com/v2/63b90585cafb0f15303e2f28#/clusters/detail/MyExpenseTracker
 
-* Extension work ideas for future: 
+* Ideas for future development: 
 
     *   Tests are internal so far create separate files for Unit Testing
 
     *   React app is not responsive - make it mobile friendly
 
     *   Other functionality is in the code, add buttons so it can be used
+
+    *   Find source of date formatting and change to DD/MM/YYYY - has been attempted but not successful so far
 
