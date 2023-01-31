@@ -21,6 +21,8 @@ CLG Node JS Final Project
 
         *   https://react-expense-tracker-app-v2.netlify.app/
 
+        *   https://github.com/Shannspan/react-expense-tracker-app-v2
+
     *   Move to MongoDB Atlas (cloud) for database
 
         *   https://cloud.mongodb.com/v2/63b90585cafb0f15303e2f28#/clusters/detail/MyExpenseTracker
